@@ -105,6 +105,12 @@ class WDFix extends PluginBase implements Listener{
 				$property->setAccessible(true);
 				$property->setValue($event->getOrigin(), $clientData["Waterdog_IP"]);
 			}
+			if (isset($clientData["Waterdog_XUID"])) {
+				$class = new ReflectionClass($event->getOrigin());
+				$property = $class->getProperty("xuid");
+				$property->setAccessible(true);
+				$property->setValue($event->getOrigin(), $clientData["Waterdog_XUID"]);
+			}
 			unset($clientData);
 		}
 	}
